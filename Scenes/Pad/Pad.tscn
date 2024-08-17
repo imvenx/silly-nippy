@@ -1,0 +1,167 @@
+[gd_scene load_steps=7 format=3 uid="uid://c053s22k8v8d5"]
+
+[ext_resource type="Script" path="res://Scenes/Pad/Pad.gd" id="1_6lrkq"]
+[ext_resource type="Script" path="res://Scenes/Pad/CalibratePointerTopLeftButton.gd" id="2_l34s1"]
+[ext_resource type="Script" path="res://Scenes/Pad/CalibratePointerBottomRightButton.gd" id="3_6p1dl"]
+[ext_resource type="Script" path="res://Scenes/Pad/CalibrateRotationButton.gd" id="4_au57t"]
+[ext_resource type="Script" path="res://Scenes/Pad/AttackButton.gd" id="4_dkd3i"]
+[ext_resource type="Texture2D" uid="uid://bcg1nt51ahmsc" path="res://Screenshot from 2024-08-16 16-59-47.png" id="6_mkloi"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.792157, 0.52549, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -58.0
+offset_right = 1.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_mkloi")
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -314.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 4
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CalibrateRotationButton3" type="Button" parent="VBoxContainer/Control/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+text = "Menu"
+script = ExtResource("4_au57t")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CalibrateRotationButton3" type="Button" parent="VBoxContainer/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+text = "<-"
+script = ExtResource("4_au57t")
+
+[node name="CalibrateRotationButton2" type="Button" parent="VBoxContainer/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+text = "->"
+script = ExtResource("4_au57t")
+
+[node name="CalibrateRotationButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+text = "Calibrate"
+script = ExtResource("4_au57t")
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+visible = false
+layout_mode = 0
+offset_top = -342.0
+offset_right = 40.0
+offset_bottom = -302.0
+scale = Vector2(29.32, 33.36)
+color = Color(0.988235, 0.721569, 0.458824, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -179.5
+offset_top = -100.0
+offset_right = 179.5
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_constants/separation = 10
+alignment = 1
+script = ExtResource("1_6lrkq")
+
+[node name="CalibratePointerTopLeftButton" type="Button" parent="Control/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+text = "Calibrate Pointer Top Left"
+script = ExtResource("2_l34s1")
+
+[node name="CalibratePointerBottomRightButton" type="Button" parent="Control/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+text = "Calibrate Pointer Bottom Right"
+script = ExtResource("3_6p1dl")
+
+[node name="AttackButton" type="Button" parent="Control/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+text = "Attack!"
+script = ExtResource("4_dkd3i")

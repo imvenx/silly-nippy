@@ -1,0 +1,94 @@
+[gd_scene load_steps=9 format=3 uid="uid://btmibu7tloi4g"]
+
+[ext_resource type="Script" path="res://Scenes/View/View.gd" id="2_0utso"]
+[ext_resource type="PackedScene" uid="uid://bchosku3pf26q" path="res://silly-nippy.gltf" id="2_b3wyl"]
+[ext_resource type="Script" path="res://silly_nippy.gd" id="3_ya7a4"]
+[ext_resource type="PackedScene" uid="uid://dr1jyf1lbk3nx" path="res://silly-tree.gltf" id="4_i5ldu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_y32qh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lnhom"]
+albedo_color = Color(0.710903, 0.885346, 0.286062, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fn1rs"]
+albedo_color = Color(0.453983, 0.288299, 0.180111, 1)
+
+[sub_resource type="Environment" id="Environment_k02on"]
+background_mode = 1
+background_color = Color(0.368575, 0.689178, 0.71862, 1)
+
+[node name="View" type="Node3D"]
+script = ExtResource("2_0utso")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.244397, 0.669985, -0.700992, 2.31551e-09, 0.722914, 0.690938, 0.969675, 0.168863, -0.176678, -9.52209, 8.98944, 3.11323)
+keep_aspect = 0
+fov = 67.1777
+size = 11.3411
+near = 0.41
+far = 111.41
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 100.0
+offset_top = 52.0
+offset_right = 623.0
+offset_bottom = 356.0
+text = "VIEW!"
+
+[node name="PausePanel" type="Panel" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PausePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.0
+offset_top = -82.5
+offset_right = 149.0
+offset_bottom = 82.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "GAME PAUSED"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.245649, 0.702675, -0.667761, -0.242598, 0.711511, 0.659468, 0.938511, 0, 0.345249, -0.723843, 0.561331, 2.86043)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(6.85818, 0, 0, 0, 0.980086, 0, 0, 0, 11.7353, 0, -0.885769, 5.54666)
+mesh = SubResource("BoxMesh_y32qh")
+surface_material_override/0 = SubResource("StandardMaterial3D_lnhom")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(6.85818, 0, 0, 0, 0.980086, 0, 0, 0, 11.7353, 0, -1.86556, 5.54666)
+mesh = SubResource("BoxMesh_y32qh")
+surface_material_override/0 = SubResource("StandardMaterial3D_fn1rs")
+
+[node name="silly-nippy" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.280686, 0)
+script = ExtResource("3_ya7a4")
+
+[node name="silly-nippy" parent="silly-nippy" instance=ExtResource("2_b3wyl")]
+transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0.337923, -0.0400158, 0.799133)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_k02on")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.567258, 0.703962, 0.427382, 0.116617, -0.582391, 0.8045, 0.815241, -0.40652, -0.412461, 13.2352, 4.1328, -24.4643)
+light_color = Color(1, 1, 0.458824, 1)
+light_energy = 0.03
+shadow_enabled = true
+
+[node name="silly-tree" parent="." instance=ExtResource("4_i5ldu")]
+transform = Transform3D(-2.02752e-05, -6.22602e-06, 0.25, -5.26047e-05, 0.25, 6.22175e-06, -0.25, -5.26042e-05, -2.02765e-05, -0.68778, 0, 9.07016)

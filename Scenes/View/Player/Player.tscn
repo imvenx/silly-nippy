@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://yn6xh5meu48w"]
+
+[ext_resource type="Script" path="res://Scenes/View/Player/Player.gd" id="1_d673a"]
+[ext_resource type="Texture2D" uid="uid://cjevfdchlk84s" path="res://Scenes/View/Player/pointer.png" id="2_qidfo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_pjil2"]
+size = Vector3(1, 2, 0.1)
+
+[node name="Node" type="Node"]
+script = ExtResource("1_d673a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_pjil2")
+skeleton = NodePath("")
+
+[node name="Pointer" type="Sprite2D" parent="."]
+position = Vector2(215, 225)
+texture = ExtResource("2_qidfo")

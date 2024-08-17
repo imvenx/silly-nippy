@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://8yjx0uipsije"]
+
+[ext_resource type="PackedScene" uid="uid://bchosku3pf26q" path="res://silly-nippy.gltf" id="1_clyfs"]
+
+[node name="silly-nippy" instance=ExtResource("1_clyfs")]
